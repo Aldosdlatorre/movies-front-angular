@@ -1,1 +1,232 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==== LAYOUT GENERAL ==== */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #1e293b 0, #020617 55%, #000 100%);
+  color: #f9fafb;
+}
+
+.app-main {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.app-container {
+  max-width: 1200px;
+}
+
+/* ==== NAVBAR GLASS ==== */
+
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.85));
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.navbar-brand::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background: conic-gradient(from 160deg, #f97316, #e11d48, #6366f1, #22c55e, #f97316);
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  color: #e5e7eb !important;
+  opacity: 0.7;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ==== HOME (HERO) ==== */
+
+.hero {
+  text-align: center;
+  padding: 5rem 1rem 4rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+  font-weight: 700;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0.75rem auto 0;
+  color: #9ca3af;
+}
+
+.hero-badges {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+/* ==== BOTONES ==== */
+
+.btn-danger {
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  border: none;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #fdba74, #f472b6);
+}
+
+.btn-outline-light {
+  border-color: rgba(249, 250, 251, 0.35);
+}
+
+/* ==== CATÁLOGO ==== */
+
+.catalog-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.catalog-title-block h2 {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.catalog-subtitle {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* GRID cards */
+
+.movies-grid {
+  display: grid;
+  gap: 1.6rem;
+}
+
+@media (min-width: 576px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Cards */
+
+.movie-card {
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.95);
+  border-color: rgba(248, 250, 252, 0.7);
+}
+
+.movie-card-cover {
+  position: relative;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.movie-card-cover::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.98), transparent);
+}
+
+.movie-card-body {
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.7rem;
+  z-index: 1;
+}
+
+.movie-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.1rem;
+}
+
+.movie-year {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* ==== DETALLE ==== */
+
+.movie-detail-poster {
+  border-radius: 20px;
+  box-shadow: 0 26px 45px rgba(0, 0, 0, 0.85);
+  max-height: 460px;
+  object-fit: cover;
+}
+
+.movie-detail-meta {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* ==== FORM ==== */
+
+.bg-slate {
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+}
+
+/* ==== UTILIDADES ==== */
+
+.text-secondary {
+  color: #9ca3af !important;
+}
